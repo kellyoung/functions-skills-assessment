@@ -249,7 +249,7 @@ def full_title(name, job_title="Engineer"):
     Default job title is an Engineer.
     """
     if type(name) is str and type(job_title) is str:
-        return job_title + ' ' + name
+        return "%s %s" % (job_title, name)
 
 
 def write_letter(recipient_name, recipient_title, sender_name):
