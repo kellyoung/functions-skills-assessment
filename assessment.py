@@ -87,9 +87,9 @@ def is_hometown(town_name):
     Takes a town's name and returns True if the town name is 'Irvine'
     """
 
-    town_name = town_name.upper()
+    town_name_upper = town_name.upper()
 
-    if town_name == "IRVINE":
+    if town_name_upper == "IRVINE":
         return True
 
     return False
@@ -115,18 +115,58 @@ def full_name(first_name, last_name):
 #        we're from the same place!", or "Hi 'full name here', where are you
 #        from?" depending on what `is_hometown()` evaluates to.
 
+
+def hometown_greeting(hometown, first_name, last_name):
+    """
+    Prints a grreeting depending on hometown inputted
+
+    Uses the is_hometown() function to check if the hometown is the same
+    and the full_name function() to format the inputted first and last names.
+    """
+    first_and_last = full_name(first_name, last_name)
+
+    if is_hometown(hometown):
+        print "Hi, %s, we're from the same place!" % (first_and_last)
+    else:
+        print "Hi, %s, where are you from?" % (first_and_last)
+
 #####################################################################
 
 # PART THREE
 
-# 1. Write a function ``increment()`` with a nested inner function, ``add()`` 
+# 1. Write a function ``increment()`` with a nested inner function, ``add()``
 #    inside of it. The outer function should take ``x``, an integer which
 #    defaults to 1. The inner function should take ``y`` and add ``x`` and ``y`` together.
 
+
+def increment(x=1):
+    """
+    Creates a function that lets you increment by x amount
+    """
+    def add(y):
+        """
+        Takes y and adds it to x based on what x is set to in increment()
+        """
+        return x + y
+
+    return add
+
+
 # 2. Call the function ``increment()`` with x = 5. Assign what is returned to a variable name, addfive. Call 
 #    addfive with y = 5. Call again with y = 20.
+addfive = increment(5)
+addfive(5)
+addfive(20)
 
 # 3. Make a function that takes in a number and a list of numbers. It should append
 #    the number to the list of numbers and return the list.
+
+
+def add_num_to_list(num, number_list):
+    """
+    Append num to number_list
+    """
+    number_list.append(num)
+    return number_list
 
 #####################################################################
